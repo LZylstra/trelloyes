@@ -27,7 +27,7 @@ function List(props){
                         content = {card.content}
                     />
                 ))}
-            <button type="button" class="List-add-button">
+            <button type="button" className="List-add-button">
                 + Add Random Card
             </button>
             </div> 
