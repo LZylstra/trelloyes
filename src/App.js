@@ -32,13 +32,14 @@ function omit(obj, keyToOmit) {
     {}
   );
 }
+
 class App extends React.Component {
   state = {
     listOfCards: store
   };
 
   handleDelete = cardId =>{
-    const { lists, allCards } = this.state.store;
+    const { lists, allCards } = this.state.listOfCards;
 
     const newLists = lists.map(list => ({
       ...list,
@@ -48,7 +49,7 @@ class App extends React.Component {
     const newCards = omit(allCards, cardId);
 
     this.setState({
-      store: {
+      listOfCards: {
         lists: newLists,
         allCards: newCards
       }
@@ -57,9 +58,9 @@ class App extends React.Component {
 
   handleRandom = listId =>{
   const newCard = newRandomCard();
-    console.log(newCard)
      
-    const newLists = this.state.store.lists.map(list =>{
+    const newLists = this.state.listofCards.lists.map(list =>{
+      console.log(list)
       if (list.id === listId){
         return {
         ...list,
@@ -70,7 +71,7 @@ class App extends React.Component {
     })
 
     this.setState({
-      store: {
+      listOfCards: {
         lists: newLists,
         allCards: {
           ...this.state.store.allCards,
