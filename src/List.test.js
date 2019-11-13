@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
 import List from './List';
-import STORE from './STORE';
+
 
 describe("List Component", () => {
     it("renders without crashing", () => {
