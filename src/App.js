@@ -38,7 +38,7 @@ class App extends React.Component {
     listOfCards: store
   };
 
-  handleDelete = cardId =>{
+  handleDelete = (cardId) =>{
     const { lists, allCards } = this.state.listOfCards;
 
     const newLists = lists.map(list => ({
@@ -56,15 +56,15 @@ class App extends React.Component {
     })
   }
 
-  handleRandom = listId =>{
+  handleRandom = (listId) =>{
   const newCard = newRandomCard();
      
-    const newLists = this.state.listofCards.lists.map(list =>{
-      console.log(list)
+    const newLists = this.state.listOfCards.lists.map(list  =>{
+      console.log(list);
       if (list.id === listId){
         return {
         ...list,
-        cardIds: [...list.cardsIds, newCard.id]
+        cardIds: [...list.cardIds, newCard.id]
         };
       }
       return list;
@@ -74,7 +74,7 @@ class App extends React.Component {
       listOfCards: {
         lists: newLists,
         allCards: {
-          ...this.state.store.allCards,
+          ...this.state.listOfCards.allCards,
           [newCard.id]: newCard
         }
       }
